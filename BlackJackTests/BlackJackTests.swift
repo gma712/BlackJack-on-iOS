@@ -11,24 +11,25 @@ import XCTest
 
 class BlackJackTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testDeckInitializationSucceed() {
+        
+        let deck = Deck.init()
+        XCTAssertNotNil(deck)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testPlayerInitializationSucceed() {
+        
+        let deck = Deck()
+        let player = Player.init(deck)
+        XCTAssertNotNil(player)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testCardName() {
+        let club4 = Card(rank: Rank.four, suit: Suit.club)
+        XCTAssertEqual(club4.name(), "club4")
+        
+        let heart1 = Card(rank: Rank.ace, suit: Suit.heart)
+        XCTAssertEqual(heart1.name(), "heart1")
     }
 
 }
