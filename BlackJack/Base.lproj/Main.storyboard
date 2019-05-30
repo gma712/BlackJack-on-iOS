@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="left" semanticContentAttribute="forceLeftToRight" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eBG-AH-G4T" customClass="PlayerHandControl" customModule="BlackJack" customModuleProvider="target">
+                            <stackView opaque="NO" contentMode="left" semanticContentAttribute="forceLeftToRight" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eBG-AH-G4T" customClass="PlayerHandControl" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="80" y="427" width="215" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="JYT-Zy-0Hh"/>

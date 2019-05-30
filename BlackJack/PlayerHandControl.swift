@@ -11,41 +11,47 @@ import UIKit
 @IBDesignable class PlayerHandControl: UIStackView {
 
     //MARK: Properties
-//    var cards: [Card]
+    private var holdingCards = [UIImageView]()
     
 
     //MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupPlayer()
     }
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        setupPlayer()
     }
     
-    private func setupPlayer() {
+    func setupPlayer(_ player: Player) {
+
+        for card in holdingCards {
+            removeArrangedSubview(card)
+            card.removeFromSuperview()
+        }
+        holdingCards.removeAll()
 
         print("setup")
-//        print("Cards: \(cards)")
         
-        for card in cards{
-            print("The Card")
-            
-            
-            var cardImage = UIImage(named: card.name())
-            var cardView = UIImageView(image: cardImage)
-            addArrangedSubview(cardView)
-            card = Card(rank: Rank.four, suit: Suit.club)
-
+        let bundle = Bundle(for: type(of: self))
+        let cardImage = UIImage(named: "BackSide", in: bundle, compatibleWith: self.traitCollection)
+        if let cardImage = cardImage {
+            let cardView = UIImageView(image: cardImage)
+            self.addArrangedSubview(cardView)
+            self.holdingCards.append(cardView)
+        } else {
+            fatalError("Resource not found.")
         }
-//        let bundle = Bundle(path: "")
-        
-//        for card in cards {
-//            let cardImage = UIImage(named: "BackSide")
-//            images.append(cardImage!)
+//        for card in player.hand {
+//            print("The Card: \(card.name())")
+//
+//
+//            let cardImage = UIImage(named: "BackSide", in: bundle, compatibleWith: self.traitCollection)
+//            print(cardImage)
+//            let cardView = UIImageView(image: cardImage!)
+//            print(cardView)
+//            addArrangedSubview(cardView)
+//            holdingCards.append(cardView)
 //        }
     }
-    
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var playerHandControl: PlayerHandControl!
+    @IBOutlet var playerHandControl: PlayerHandControl!
     
     var deck: Deck?
     var player: Player?
@@ -26,12 +26,14 @@ class ViewController: UIViewController {
         dealer = Dealer(deck!)
         
         if let player = player {
-            setupPlayer(player.hand)
+            self.playerHandControl = PlayerHandControl()
+            self.playerHandControl.setupPlayer(player)
         }
     }
-
-    private func setupPlayer(_ cards: [Card]) {
-        
-        }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }
 
