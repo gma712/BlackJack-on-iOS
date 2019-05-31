@@ -17,5 +17,12 @@ import UIKit
         print(self.arrangedSubviews)
     }
 
+    func startAction(_ dealer: Dealer, deck: Deck) {
+        openCard(index: 1)
+        let cards = dealer.mainAction(deck)
+        for card in cards {
+            self.addHand(card)
+        }
+    }
     
 }

@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var playerHandControl: PlayerHandControl!
     @IBOutlet var dealerHandControl: DealerHandControl!
     @IBOutlet weak var hitButton: UIButton!
     @IBOutlet weak var standButton: UIButton!
+    @IBOutlet weak var resultMessage: UITextField!
+    @IBOutlet weak var resetButton: UIButton!
     
     var deck: Deck?
     var player: Player?
@@ -47,6 +49,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func resetButtonAction(_ sender: Any) {
+        
+    }
     
     @IBAction func hitButtonAction(_ sender: Any) {
         if let player = player {
@@ -62,6 +67,25 @@ class ViewController: UIViewController {
         if let player = player {
             player.stand()
         }
+        if let dealer = dealer {
+            dealerHandControl.startAction(dealer, deck: deck!)
+        }
+        judge()
     }
+    
+    private func judge() {
+        let playerScore = self.player?.score
+        let dealerScore = self.dealer?.score
+        
+        if playerScore! > dealerScore! {
+            resultMessage.text = "You Win!!"
+        } else if playerScore! < dealerScore! {
+            resultMessage.text = "You lose."
+        } else {
+            resultMessage.text = "Draw!"
+        }
+        
+    }
+    
 }
 

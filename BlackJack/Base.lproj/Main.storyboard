@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="left" semanticContentAttribute="forceLeftToRight" misplaced="YES" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eBG-AH-G4T" customClass="PlayerHandControl" customModule="BlackJack" customModuleProvider="target">
-                                <rect key="frame" x="80" y="567" width="200" height="120"/>
+                            <stackView opaque="NO" contentMode="TopLeft" semanticContentAttribute="forceLeftToRight" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eBG-AH-G4T" customClass="PlayerHandControl" customModule="BlackJack" customModuleProvider="target">
+                                <rect key="frame" x="60" y="567" width="138" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="JYT-Zy-0Hh"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rg6-Gt-hT0" customClass="DealerHandControl" customModule="BlackJack" customModuleProvider="target">
-                                <rect key="frame" x="80" y="40" width="140" height="80"/>
+                            <stackView opaque="NO" contentMode="left" semanticContentAttribute="forceLeftToRight" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Rg6-Gt-hT0" customClass="DealerHandControl" customModule="BlackJack" customModuleProvider="target">
+                                <rect key="frame" x="60" y="40" width="138" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="GUO-0u-dPQ"/>
                                 </constraints>
@@ -56,12 +56,29 @@
                                     <action selector="standButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wz9-Fv-Lno"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1AZ-As-sIY">
+                                <rect key="frame" x="139" y="231" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raZ-tT-aGL">
+                                <rect key="frame" x="317" y="20" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EEp-0G-PLH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eBG-AH-G4T" secondAttribute="bottom" constant="20" id="JI4-kw-JVW"/>
-                            <constraint firstItem="eBG-AH-G4T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="SuO-Ly-qia"/>
-                            <constraint firstItem="Rg6-Gt-hT0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="Zqf-mP-naR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eBG-AH-G4T" secondAttribute="trailing" constant="80" id="Mnh-9C-7eT"/>
+                            <constraint firstItem="eBG-AH-G4T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="SuO-Ly-qia"/>
+                            <constraint firstItem="Rg6-Gt-hT0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="Zqf-mP-naR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rg6-Gt-hT0" secondAttribute="trailing" constant="60" id="bOX-em-EFu"/>
                             <constraint firstItem="Rg6-Gt-hT0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="kPY-Ha-P09"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -70,11 +87,14 @@
                         <outlet property="dealerHandControl" destination="Rg6-Gt-hT0" id="DJt-4N-q2x"/>
                         <outlet property="hitButton" destination="xF8-OW-ka0" id="vNE-2y-POh"/>
                         <outlet property="playerHandControl" destination="eBG-AH-G4T" id="hMF-6o-3lW"/>
+                        <outlet property="resetButton" destination="raZ-tT-aGL" id="rg6-HA-kFT"/>
+                        <outlet property="resultMessage" destination="1AZ-As-sIY" id="DaK-2B-dVd"/>
                         <outlet property="standButton" destination="ydJ-ni-yEL" id="Mw4-mw-S1G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="40.799999999999997" y="25.637181409295355"/>
         </scene>
     </scenes>
 </document>

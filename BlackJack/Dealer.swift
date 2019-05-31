@@ -17,12 +17,15 @@ class Dealer: Person {
         }
     }
     
-    func mainAction(_ deck: Deck) {
+    func mainAction(_ deck: Deck) -> [Card] {
+        var cards = [Card]()
         while self.drawNext == true {
-            _ = self.hit(deck)
+            let card = self.hit(deck)
+            cards.append(card)
             if self.score >= 17 {
                 self.stand()
             }
         }
+        return cards
     }
 }
