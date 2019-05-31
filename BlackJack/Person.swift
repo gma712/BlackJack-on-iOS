@@ -23,10 +23,11 @@ class Person {
         self.score += hand[1].score()
     }
     
-    func hit(_ deck: Deck) {
+    func hit(_ deck: Deck) -> Card {
         let card: Card = deck.draw()
         self.addScore(card)
         self.burstCheck()
+        return card
     }
     
     func stand(){

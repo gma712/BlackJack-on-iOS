@@ -10,6 +10,14 @@ import UIKit
 
 @IBDesignable class PlayerHandControl: HandControl {
 
+    func firstSet(_ player: Player) {
+        print(self.arrangedSubviews)
+        self.holdingCards = player.hand
+        openCard(index: 0)
+        openCard(index: 1)
+        print(self.arrangedSubviews)
+    }
+    
     
 
 }

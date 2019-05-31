@@ -12,7 +12,7 @@ import UIKit
 // This is the super class of PlayerHandControler and DealerHandControler.
 class HandControl: UIStackView {
     //MARK: Properties
-    private var holdingCards = [UIImageView]()
+    var holdingCards = [Card]()
     
     
     //MARK: Initialization
@@ -28,26 +28,42 @@ class HandControl: UIStackView {
     
     private func setup() {
         
-        for card in holdingCards {
-            removeArrangedSubview(card)
-            card.removeFromSuperview()
-        }
-        holdingCards.removeAll()
-        
         print("setup")
-        
+        let bundle = Bundle(for: type(of: self))
         for _ in 1...2 {
-            let bundle = Bundle(for: type(of: self))
             let cardImage = UIImage(named: "BackSide", in: bundle, compatibleWith: self.traitCollection)
             if let cardImage = cardImage {
-                let cardView = UIImageView(image: cardImage)
-                cardView.heightAnchor.constraint(equalToConstant: 80.0).isActive = true
-                cardView.widthAnchor.constraint(equalToConstant: 65.0).isActive = true
+                let cardView = CardView(image: cardImage)
                 self.addArrangedSubview(cardView)
-                self.holdingCards.append(cardView)
             } else {
                 fatalError("Resource not found.")
             }
         }
     }
+    
+    func openCard(index: Int) {
+        let bundle = Bundle(for: type(of: self))
+        let openedCard = self.holdingCards[index]
+        let openedCardImage = UIImage(named: openedCard.name(), in: bundle, compatibleWith: self.traitCollection)
+        if let openedCardImage = openedCardImage {
+            let openedCardView = CardView(image: openedCardImage)
+            self.removeArrangedSubview(self.arrangedSubviews[index])
+            self.insertArrangedSubview(openedCardView, at: index)
+        } else {
+            fatalError("Resources \(openedCard.name()) is not found.")
+        }
+    }
+    
+    func addHand(_ card: Card) {
+        let bundle = Bundle(for: type(of: self))
+        let cardImage = UIImage(named: card.name(), in: bundle, compatibleWith: self.traitCollection)
+        if let cardImage = cardImage {
+            let cardView = CardView(image: cardImage)
+            self.addArrangedSubview(cardView)
+            self.holdingCards.append(card)
+        } else {
+            fatalError("Resources \(card.name()) is not found.")
+        }
+    }
 }
+

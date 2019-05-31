@@ -19,7 +19,7 @@ class Dealer: Person {
     
     func mainAction(_ deck: Deck) {
         while self.drawNext == true {
-            self.hit(deck)
+            _ = self.hit(deck)
             if self.score >= 17 {
                 self.stand()
             }
