@@ -11,31 +11,38 @@ import UIKit
 
 class Person {
     var hand: [Card]
-    var score: Int
+    var score: Int = 0
+    var drawNext = true
     var burst = false
     
     init(_ deck: Deck) {
         self.hand = [Card]()
-        self.hand.append(deck.drawed())
-        self.hand.append(deck.drawed())
-        self.score = hand[0].score() + hand[1].score()
+        self.hand.append(deck.draw())
+        self.hand.append(deck.draw())
+        self.score += hand[0].score()
+        self.score += hand[1].score()
     }
     
-    func hit(_ deck: Deck) -> Card {
-        let card: Card = deck.drawed()
-        burstCheck()
-        return card
+    func hit(_ deck: Deck) {
+        let card: Card = deck.draw()
+        self.addScore(card)
+        self.burstCheck()
+    }
+    
+    func stand(){
+        self.drawNext = false
+    }
+    
+    func addScore(_ card: Card) {
+        self.score += card.score()
     }
     
     func burstCheck() {
-        if score > 21 {
+        if self.score > 21 {
             self.burst = true
         }
     }
     
-    func stand(){
-        
-    }
 }
 
 

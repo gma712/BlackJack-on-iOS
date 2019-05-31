@@ -20,6 +20,8 @@
 		AC28FB3A229E7D0C0084F3D6 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28FB39229E7D0C0084F3D6 /* Player.swift */; };
 		AC2CFEB6229F8B750029E7B9 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2CFEB5229F8B750029E7B9 /* Deck.swift */; };
 		AC2CFEB8229F8BA20029E7B9 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2CFEB7229F8BA20029E7B9 /* Dealer.swift */; };
+		AC2E8E9422A0BDF5003870AB /* DealerHandControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E8E9322A0BDF5003870AB /* DealerHandControl.swift */; };
+		AC2E8E9622A0C95D003870AB /* HandControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E8E9522A0C95D003870AB /* HandControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		AC28FB39229E7D0C0084F3D6 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		AC2CFEB5229F8B750029E7B9 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		AC2CFEB7229F8BA20029E7B9 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
+		AC2E8E9322A0BDF5003870AB /* DealerHandControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerHandControl.swift; sourceTree = "<group>"; };
+		AC2E8E9522A0C95D003870AB /* HandControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 				AC28FB05229E6D5D0084F3D6 /* AppDelegate.swift */,
 				AC28FB07229E6D5D0084F3D6 /* ViewController.swift */,
 				AC28FB37229E75E30084F3D6 /* PlayerHandControl.swift */,
+				AC2E8E9322A0BDF5003870AB /* DealerHandControl.swift */,
+				AC2E8E9522A0C95D003870AB /* HandControl.swift */,
 				AC28FB33229E6E720084F3D6 /* Card.swift */,
 				AC2CFEB5229F8B750029E7B9 /* Deck.swift */,
 				AC28FB35229E6E9F0084F3D6 /* Person.swift */,
@@ -280,7 +286,9 @@
 				AC28FB08229E6D5D0084F3D6 /* ViewController.swift in Sources */,
 				AC2CFEB8229F8BA20029E7B9 /* Dealer.swift in Sources */,
 				AC28FB06229E6D5D0084F3D6 /* AppDelegate.swift in Sources */,
+				AC2E8E9622A0C95D003870AB /* HandControl.swift in Sources */,
 				AC28FB3A229E7D0C0084F3D6 /* Player.swift in Sources */,
+				AC2E8E9422A0BDF5003870AB /* DealerHandControl.swift in Sources */,
 				AC28FB38229E75E30084F3D6 /* PlayerHandControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

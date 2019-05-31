@@ -10,4 +10,19 @@ import UIKit
 
 class Dealer: Person {
     
+    override init(_ deck: Deck) {
+        super.init(deck)
+        if self.score >= 17 {
+            self.stand()
+        }
+    }
+    
+    func mainAction(_ deck: Deck) {
+        while self.drawNext == true {
+            self.hit(deck)
+            if self.score >= 17 {
+                self.stand()
+            }
+        }
+    }
 }

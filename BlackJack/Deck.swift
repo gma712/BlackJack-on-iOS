@@ -30,7 +30,7 @@ class Deck {
         }
     }
     
-    func drawed() -> Card {
+    func draw() -> Card {
         let card = order[0]
         order.remove(at: 0)
         return card

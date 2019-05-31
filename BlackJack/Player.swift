@@ -9,6 +9,15 @@
 import UIKit
 
 class Player: Person {
+
+    
+    override init(_ deck: Deck) {
+        super.init(deck)
+        if self.score == 21{
+            self.stand()
+        }
+    }
+
     
 }
 
