@@ -13,12 +13,18 @@ class Player: Person {
     
     override init(_ deck: Deck) {
         super.init(deck)
-        if self.score == 21{
+        if self.score >= 21{
             self.stand()
         }
     }
 
-    
+    override func hit(_ deck: Deck) -> Card? {
+        let card = super.hit(deck)
+        if self.score >= 21{
+            self.stand()
+        }
+        return card
+    }
 }
 
 

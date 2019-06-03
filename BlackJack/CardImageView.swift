@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardView: UIImageView {
+class CardImageView: UIImageView {
     
     override init(image: UIImage?) {
         super.init(image: image)

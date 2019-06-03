@@ -33,8 +33,8 @@ class HandControl: UIStackView {
         for _ in 1...2 {
             let cardImage = UIImage(named: "BackSide", in: bundle, compatibleWith: self.traitCollection)
             if let cardImage = cardImage {
-                let cardView = CardView(image: cardImage)
-                self.addArrangedSubview(cardView)
+                let cardImageView = CardImageView(image: cardImage)
+                self.addArrangedSubview(cardImageView)
             } else {
                 fatalError("Resource not found.")
             }
@@ -46,7 +46,7 @@ class HandControl: UIStackView {
         let openedCard = self.holdingCards[index]
         let openedCardImage = UIImage(named: openedCard.name(), in: bundle, compatibleWith: self.traitCollection)
         if let openedCardImage = openedCardImage {
-            let openedCardView = CardView(image: openedCardImage)
+            let openedCardView = CardImageView(image: openedCardImage)
             self.removeArrangedSubview(self.arrangedSubviews[index])
             self.insertArrangedSubview(openedCardView, at: index)
         } else {
@@ -58,8 +58,8 @@ class HandControl: UIStackView {
         let bundle = Bundle(for: type(of: self))
         let cardImage = UIImage(named: card.name(), in: bundle, compatibleWith: self.traitCollection)
         if let cardImage = cardImage {
-            let cardView = CardView(image: cardImage)
-            self.addArrangedSubview(cardView)
+            let cardImageView = CardImageView(image: cardImage)
+            self.addArrangedSubview(cardImageView)
             self.holdingCards.append(card)
         } else {
             fatalError("Resources \(card.name()) is not found.")

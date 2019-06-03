@@ -55,9 +55,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func hitButtonAction(_ sender: Any) {
         if let player = player {
-            let card = player.hit(deck!)
             print("Hit!")
-            playerHandControl.addHand(card)
+            if let card = player.hit(deck!) {
+                playerHandControl.addHand(card)
+            } else {
+                print("No more draw.")
+            }
         } else {
             fatalError()
         }
@@ -74,17 +77,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func judge() {
-        let playerScore = self.player?.score
-        let dealerScore = self.dealer?.score
+        let playerIsBurst = self.player?.isBurst
+        let dealerIsBurst = self.dealer?.isBurst
         
-        if playerScore! > dealerScore! {
-            resultMessage.text = "You Win!!"
-        } else if playerScore! < dealerScore! {
+        if playerIsBurst == true && dealerIsBurst == false {
             resultMessage.text = "You lose."
+        } else if playerIsBurst == false && dealerIsBurst == true {
+            resultMessage.text = "You win!"
         } else {
-            resultMessage.text = "Draw!"
+
+            let playerScore = self.player?.score
+            let dealerScore = self.dealer?.score
+            
+            if playerScore! > dealerScore! {
+                resultMessage.text = "You Win!!"
+            } else if playerScore! < dealerScore! {
+                resultMessage.text = "You lose."
+            } else {
+                resultMessage.text = "Draw!"
+            }
         }
-        
+
     }
     
 }

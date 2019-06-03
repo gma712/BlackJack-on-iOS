@@ -13,7 +13,7 @@ class Person {
     var hand: [Card]
     var score: Int = 0
     var drawNext = true
-    var burst = false
+    var isBurst = false
     
     init(_ deck: Deck) {
         self.hand = [Card]()
@@ -23,11 +23,16 @@ class Person {
         self.score += hand[1].score()
     }
     
-    func hit(_ deck: Deck) -> Card {
-        let card: Card = deck.draw()
-        self.addScore(card)
-        self.burstCheck()
-        return card
+    func hit(_ deck: Deck) -> Card? {
+        if self.drawNext == true {
+            let card: Card = deck.draw()
+            self.addScore(card)
+            self.burstCheck()
+            return card
+        } else {
+            return nil
+        }
+        
     }
     
     func stand(){
@@ -40,7 +45,7 @@ class Person {
     
     func burstCheck() {
         if self.score > 21 {
-            self.burst = true
+            self.isBurst = true
         }
     }
     

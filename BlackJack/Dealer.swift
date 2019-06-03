@@ -21,9 +21,14 @@ class Dealer: Person {
         var cards = [Card]()
         while self.drawNext == true {
             let card = self.hit(deck)
-            cards.append(card)
-            if self.score >= 17 {
-                self.stand()
+            if let card = card {
+                cards.append(card)
+                if self.score >= 17 {
+                    self.stand()
+                } else {
+                    print("No more draw.")
+                }
+                
             }
         }
         return cards
